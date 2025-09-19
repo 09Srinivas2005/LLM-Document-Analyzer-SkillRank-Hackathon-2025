@@ -1,0 +1,21 @@
+<p>upload works!</p>
+<div class="container">
+<h1>LLM Document Analyzer</h1>
+<p>Upload a PDF (contract, invoice, or report). We'll extract text, classify it, and find missing fields.</p>
+
+
+<input type="file" accept="application/pdf" (change)="onFile($event)" />
+<button (click)="submit()" [disabled]="uploading">{{ uploading ? 'Uploading…' : 'Upload' }}</button>
+<div class="error" *ngIf="error">{{ error }}</div>
+
+
+<div class="preview" *ngIf="preview">
+<h3>Extracted Text (preview)</h3>
+<pre>{{ preview }}</pre>
+</div>
+
+
+<div *ngIf="docId">
+<button (click)="analyze()">Analyze Document</button>
+</div>
+</div>

@@ -1,0 +1,36 @@
+<p>results works!</p>
+<div class="container" *ngIf="!loading">
+<h2>Results</h2>
+<ng-container *ngIf="data?.doc; else err">
+<section class="card">
+<h3>Document</h3>
+<p><b>Original:</b> {{ data.doc.originalName }}</p>
+<p><b>Detected Type:</b> {{ data.doc.detectedType }} ({{ data.doc.detectedConfidence | number:'1.2-2' }})</p>
+<details>
+<summary>Full Text</summary>
+<pre>{{ data.doc.text }}</pre>
+</details>
+</section>
+
+
+<section class="card" *ngFor="let a of data.analyses">
+<h3>{{ a.kind }}</h3>
+<div *ngIf="a.kind==='missing_fields'">
+<p><b>Type:</b> {{ a.result.type }}</p>
+<h4>Present</h4>
+<ul>
+<li *ngFor="let p of a.result.present">
+<code>{{ p.field }}</code> — {{ p.value }} <small>({{ p.evidence }})</small>
+</li>
+</ul>
+<h4>Missing</h4>
+<ul>
+<li *ngFor="let m of a.result.missing"><b>{{ m }}</b></li>
+</ul>
+</div>
+</section>
+</ng-container>
+<ng-template #err>
+<p class="error">{{ data?.error }}</p>
+</ng-template>
+</div>

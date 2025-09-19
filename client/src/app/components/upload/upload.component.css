@@ -1,0 +1,4 @@
+.container { max-width: 760px; margin: 24px auto; font-family: system-ui, sans-serif; }
+pre { background: #111; color: #ddd; padding: 12px; border-radius: 8px; max-height: 320px; overflow: auto; }
+button { margin-top: 12px; padding: 8px 14px; }
+.error { color: #c00; margin-top: 12px; }
