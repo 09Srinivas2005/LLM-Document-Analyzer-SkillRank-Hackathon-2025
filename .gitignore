@@ -1,0 +1,16 @@
+# Node
+server/node_modules/
+server/uploads/
+server/dist/
+server/.env
+
+# Angular
+client/node_modules/
+client/dist/
+
+# Logs
+*.log
+
+# OS
+.DS_Store
+Thumbs.db
